@@ -1,0 +1,52 @@
+const MATCH_RESULT = {
+  win: 'lose',
+  lose: 'win',
+  tie: 'tie'
+}
+
+const IMAGE_PATH = {
+  paper: "<%= image_path('paper.svg') %>",
+  rock: "<%= image_path('rock.svg') %>",
+  scissors: "<%= image_path('scissors.svg') %>"
+}
+
+$(document).ready(function() {
+
+  $('.close, .button').click(function() {
+    $('.result, .popup-background, .wait').css({
+        'display': 'none',
+    });
+  });
+
+  $('.images a').click(function(e){
+    e.preventDefault();
+    var valueToPass = $(this)[0].id;
+    document.getElementById("result-current-user").src = IMAGE_PATH[valueToPass];
+    document.getElementById("result-named-current-user").innerHTML = valueToPass.charAt(0).toUpperCase() + valueToPass.slice(1);
+    $('.wait').css({
+      'display': 'block',
+    });
+    $.ajax({
+      type: 'GET',
+      url: '/throw',
+      data: {throw: valueToPass}
+    }).done(function(e) {
+      debugger;
+
+      document.getElementById("result-info1").innerHTML = "YOU " + e.state.toUpperCase() + "!";
+      document.getElementById("result-info2").innerHTML = "Curb with " + e.opponent + " " + MATCH_RESULT[e.state] + "s";
+      document.getElementById("result-opponent").src = IMAGE_PATH[e.opponent];
+      $('.wait').css({
+        'display': 'none',
+      });
+      $('.result, .popup-background').css({
+          'display': 'block',
+      });
+
+      console.log('success');
+    }).fail(function(e) {
+      console.log('fail');
+    });
+  });
+
+});

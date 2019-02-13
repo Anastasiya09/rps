@@ -1,0 +1,54 @@
+<div class="position">
+  <div class="title"">
+    <p> ROCK – PAPER – SCISSORS </p>
+  </div>
+  <div class="main-idea">
+    <p> Rock Paper Scissors is a zero sum game that is usually played by two people using their hands and no tools. The idea is to make shapes with an outstretched hand where each shape will have a certain degree of power and will lead to an outcome. </p>
+  </div>
+  <div class="select">
+    <p> SELECT YOUR BET </p>
+  </div>
+  <div class="images">
+      <a href="#" id='rock' >
+        <%= image_tag('rock.svg') %>
+        <p>Rock</p>
+      </a>
+      <a href="#" id='paper' >
+        <%= image_tag('paper.svg') %>
+        <p>Paper</p>
+      </a>
+      <a href="#" id='scissors' >
+        <%= image_tag('scissors.svg') %>
+        <p>Scissors</p>
+      </a>
+  </div>
+</div>
+<div class="modal wait">
+  <div class="close">
+    <%= image_tag('х.svg') %>
+  </div>
+  <p> WAITING CURB’S CHOOSE </p>
+  <div class="current-user">
+
+    <%= image_tag('', id: 'result-current-user') %>
+    <p id="result-named-current-user">Rock</p>
+  </div>
+  <div>
+    <%= image_tag('loader.svg', id: 'loader') %>
+    <%= image_tag('curb_logo.png', id: 'logo') %>
+  </div>
+</div>
+<div class="modal result">
+  <div class="close">
+    <%= image_tag('х.svg') %>
+  </div>
+  <p id="result-info1" class="info1"> test </p>
+  <p id="result-info2" class="info2"> test </p>
+  <div class="main">
+    <%= image_tag('rock.svg', id: 'result-opponent') %>
+  </div>
+  <button class="button">
+    OK
+  </button>
+</div>
+<div class="popup-background"></div>
