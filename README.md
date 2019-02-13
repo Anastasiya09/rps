@@ -1,24 +1,36 @@
-# README
+# ROCK – PAPER – SCISSORS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the game "ROCK – PAPER – SCISSORS".
 
-Things you may want to cover:
+## Installing
 
-* Ruby version
+**First way:**
 
-* System dependencies
+1.  download docker image and run, using following command:
+```
+docker run  -p 3000:3000 sweeticherry/rps:0.0.1
+```
 
-* Configuration
+**Second way:**
+1.  Install ruby 2.6.1
+2.  Install gems
+3.  Run application
+```
+rails s
+```
 
-* Database creation
 
-* Database initialization
+After that, you can check this application in
 
-* How to run the test suite
+```
+http://127.0.0.1:3000
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Rules
 
-* Deployment instructions
+Choose one of 3 images(rock, paper or scrissors) and wait your opponent's turn.
+After that game return resuld following the next conditions:
 
-* ...
+* Rock beats scissors
+* Scissors beats paper
+* Paper beats rock
